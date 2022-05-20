@@ -1,6 +1,8 @@
-package com.renjamio.challenge_mendel.integration.transaction.infraestructure.rest.dto;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,4 +22,9 @@ public class TransactionDTO {
     private TransactionType type;
     @JsonProperty("parent_id")
     private Long parentId;
+
+    @JsonIgnore
+    public Transaction toEntity(Long id) {
+        return new Transaction(id, amount, type, parentId);
+    }
 }
