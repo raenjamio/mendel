@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.transaction.application;
+package com.renjamio.challenge_mendel.transaction.application.create;
 
 import com.renjamio.challenge_mendel.shared.domain.BadRequestAlertException;
 import com.renjamio.challenge_mendel.transaction.infraestructure.repository.TransactionRepository;

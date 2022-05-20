@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.transaction.application;
+package com.renjamio.challenge_mendel.transaction.application.get_sum;
 
 import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.infraestructure.repository.TransactionRepository;

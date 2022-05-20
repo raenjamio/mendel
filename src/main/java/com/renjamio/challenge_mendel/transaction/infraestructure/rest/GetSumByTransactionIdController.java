@@ -1,6 +1,6 @@
 package com.renjamio.challenge_mendel.transaction.infraestructure.rest;
 
-import com.renjamio.challenge_mendel.transaction.application.GetSumByTransactionId;
+import com.renjamio.challenge_mendel.transaction.application.get_sum.GetSumByTransactionId;
 import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.SumTransactionDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;

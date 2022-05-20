@@ -1,6 +1,6 @@
 package com.renjamio.challenge_mendel.transaction.infraestructure.rest;
 
-import com.renjamio.challenge_mendel.transaction.application.GetByType;
+import com.renjamio.challenge_mendel.transaction.application.get_by_type.GetByType;
 import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;

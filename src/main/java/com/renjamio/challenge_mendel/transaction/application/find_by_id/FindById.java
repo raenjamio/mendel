@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.transaction.application;
+package com.renjamio.challenge_mendel.transaction.application.find_by_id;
 
 import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.domain.TransactionNotFound;
