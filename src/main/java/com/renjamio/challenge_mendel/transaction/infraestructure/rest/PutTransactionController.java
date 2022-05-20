@@ -1,7 +1,7 @@
-package com.renjamio.challenge_mendel.integration.transaction.infraestructure.rest;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest;
 
-import com.renjamio.challenge_mendel.integration.transaction.application.CreateTransaction;
-import com.renjamio.challenge_mendel.integration.transaction.infraestructure.rest.dto.TransactionDTO;
+import com.renjamio.challenge_mendel.transaction.application.CreateTransaction;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +28,8 @@ public class PutTransactionController {
     @ResponseStatus(HttpStatus.OK)
     public void createTransaction(@PathVariable Long idTransaction, @Valid @RequestBody TransactionDTO transactionDTO) {
 
-        log.debug("REST request to create transaction by idCar: {} ", idTransaction);
+        log.debug("REST request to create transaction by idTransaction: {} ", idTransaction);
 
-        createTransaction.execute(transactionDTO);
+        createTransaction.execute(idTransaction, transactionDTO);
     }
 }
