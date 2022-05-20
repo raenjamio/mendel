@@ -5,10 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,5 +20,16 @@ public class Transaction {
     private Double amount;
     @Enumerated(value = EnumType.STRING)
     private TransactionType type;
-    private Long parentId;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "parent_id", nullable = true)
+    private Transaction parent;
+
+    @OneToMany(mappedBy = "parent")
+    private Set<Transaction> children = new HashSet<>();
+
+    public Double getTotalAmount() {
+        var totalChildren = children.stream()
+                .mapToDouble(Transaction::getTotalAmount).sum();
+        return totalChildren + amount;
+    }
 }

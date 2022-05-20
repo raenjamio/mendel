@@ -22,9 +22,4 @@ public class TransactionDTO {
     private TransactionType type;
     @JsonProperty("parent_id")
     private Long parentId;
-
-    @JsonIgnore
-    public Transaction toEntity(Long id) {
-        return new Transaction(id, amount, type, parentId);
-    }
 }
