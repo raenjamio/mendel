@@ -1,9 +1,9 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure.rest.mapper;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.create.mapper;
 
 import com.renjamio.challenge_mendel.shared.domain.BadRequestAlertException;
 import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.infraestructure.repository.TransactionRepository;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionDTO;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;

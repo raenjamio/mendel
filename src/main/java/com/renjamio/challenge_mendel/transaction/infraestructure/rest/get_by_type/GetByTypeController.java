@@ -1,7 +1,7 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure.rest;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.get_by_type;
 
 import com.renjamio.challenge_mendel.transaction.application.get_by_type.GetByType;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
+import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.renjamio.challenge_mendel.transaction.infraestructure.rest.PutTransactionController.TRANSACTIONS_URL;
+import static com.renjamio.challenge_mendel.transaction.infraestructure.rest.create.PutTransactionController.TRANSACTIONS_URL;
 
 @RestController
 @Log4j2

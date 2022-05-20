@@ -1,7 +1,7 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure.rest;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.create;
 
 import com.renjamio.challenge_mendel.transaction.application.create.CreateTransaction;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionDTO;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,6 @@ public class PutTransactionController {
     /**
      *
      * @param idTransaction required
-     * @return
      */
     @PutMapping(TRANSACTIONS_URL + "/{idTransaction}")
     @ResponseStatus(HttpStatus.OK)

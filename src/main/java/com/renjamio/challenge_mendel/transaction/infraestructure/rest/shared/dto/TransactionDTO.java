@@ -1,8 +1,7 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.renjamio.challenge_mendel.transaction.domain.Transaction;
+import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

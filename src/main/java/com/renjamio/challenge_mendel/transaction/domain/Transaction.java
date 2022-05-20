@@ -1,6 +1,5 @@
 package com.renjamio.challenge_mendel.transaction.domain;
 
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,7 @@ public class Transaction {
     @Enumerated(value = EnumType.STRING)
     private TransactionType type;
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "parent_id", nullable = true)
+    @JoinColumn(name = "parent_id")
     private Transaction parent;
 
     @OneToMany(mappedBy = "parent")

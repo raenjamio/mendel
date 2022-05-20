@@ -2,7 +2,7 @@ package com.renjamio.challenge_mendel.transaction.application.get_by_type;
 
 import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.infraestructure.repository.TransactionRepository;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
+import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto;
+package com.renjamio.challenge_mendel.transaction.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

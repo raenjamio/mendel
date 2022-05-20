@@ -1,6 +1,6 @@
 package com.renjamio.challenge_mendel.shared.converter;
 
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
+import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
 import org.springframework.core.convert.converter.Converter;
 
 public class StringToEnumConverter implements Converter<String, TransactionType> {

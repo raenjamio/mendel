@@ -1,9 +1,9 @@
 package com.renjamio.challenge_mendel.transaction.infraestructure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.PutTransactionController;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionDTO;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.create.PutTransactionController;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
+import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
