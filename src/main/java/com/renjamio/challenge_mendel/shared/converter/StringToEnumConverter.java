@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.converter;
+package com.renjamio.challenge_mendel.shared.converter;
 
 import com.renjamio.challenge_mendel.transaction.infraestructure.rest.dto.TransactionType;
 import org.springframework.core.convert.converter.Converter;

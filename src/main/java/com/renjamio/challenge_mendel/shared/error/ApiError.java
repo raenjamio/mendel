@@ -1,4 +1,4 @@
-package com.renjamio.challenge_mendel.error;
+package com.renjamio.challenge_mendel.shared.error;
 
 import org.springframework.http.HttpStatus;
 

@@ -1,6 +1,6 @@
-package com.renjamio.challenge_mendel.config;
+package com.renjamio.challenge_mendel.shared.config;
 
-import com.renjamio.challenge_mendel.converter.StringToEnumConverter;
+import com.renjamio.challenge_mendel.shared.converter.StringToEnumConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

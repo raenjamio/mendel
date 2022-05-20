@@ -1,6 +1,6 @@
-package com.renjamio.challenge_mendel.config;
+package com.renjamio.challenge_mendel.shared.config;
 
-import com.renjamio.challenge_mendel.error.ApiError;
+import com.renjamio.challenge_mendel.shared.error.ApiError;
 import com.renjamio.challenge_mendel.shared.domain.BadRequestAlertException;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
