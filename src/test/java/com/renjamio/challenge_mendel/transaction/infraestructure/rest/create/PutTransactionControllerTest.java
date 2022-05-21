@@ -34,7 +34,6 @@ class PutTransactionControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
- //               .andExpect(MockMvcResultMatchers.jsonPath("$.employeeId").exists());
     }
 
     @Test
