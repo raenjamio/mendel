@@ -43,4 +43,13 @@ class GetSumByTransactionIdTest {
         assertThat(totalSum).isEqualTo(5000);
     }
 
+    @Test
+    @DisplayName("should return zero when id not found")
+    void Should_Return_Zero_When_TransactionId_Not_Found()
+    {
+        var totalSum = getSumByTransactionId.execute(100L);
+
+        assertThat(totalSum).isEqualTo(0);
+    }
+
 }
