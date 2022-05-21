@@ -2,10 +2,7 @@ package com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dt
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,6 +10,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class TransactionDTO {
 
     @NotNull(message = "transaction.amount.not-null")

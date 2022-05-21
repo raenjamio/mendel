@@ -1,6 +1,7 @@
 package com.renjamio.challenge_mendel.transaction.application.create;
 
 import com.renjamio.challenge_mendel.shared.domain.BadRequestAlertException;
+import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.infraestructure.repository.TransactionRepository;
 import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
 import com.renjamio.challenge_mendel.transaction.infraestructure.rest.create.mapper.TransactionDtoToEntity;
@@ -19,12 +20,12 @@ public class CreateTransaction {
         this.transactionDtoToEntity = transactionDtoToEntity;
     }
 
-    public void execute(Long idTransaction, TransactionDTO transactionDTO) {
+    public Transaction execute(Long idTransaction, TransactionDTO transactionDTO) {
         var transactionFound = transactionRepository.findById(idTransaction);
         if (transactionFound.isPresent()) {
             throw new BadRequestAlertException(
                     "Error creating transaction transactionId: " + idTransaction +  " exist ", "transaction", "id");
         }
-        transactionRepository.save(transactionDtoToEntity.toEntity(idTransaction, transactionDTO));
+        return transactionRepository.save(transactionDtoToEntity.toEntity(idTransaction, transactionDTO));
     }
 }
