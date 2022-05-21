@@ -1,9 +1,8 @@
-package com.renjamio.challenge_mendel.transaction.infraestructure;
+package com.renjamio.challenge_mendel.transaction.infraestructure.rest.create;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.create.PutTransactionController;
-import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
 import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
+import com.renjamio.challenge_mendel.transaction.infraestructure.rest.shared.dto.TransactionDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +16,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PutTransactionControllerTest {
+class PutTransactionControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
     @DisplayName("Test create transaction success")
-    public void createTransaction() throws Exception
+    void createTransaction() throws Exception
     {
         mvc.perform( MockMvcRequestBuilders
                 .put(PutTransactionController.TRANSACTIONS_URL + "/{id}", 2)
@@ -40,7 +39,7 @@ public class PutTransactionControllerTest {
 
     @Test
     @DisplayName("Test return 404 when type is null")
-    public void Should_Return404_When_Type_Null() throws Exception
+    void Should_Return404_When_Type_Null() throws Exception
     {
         mvc.perform( MockMvcRequestBuilders
                 .put(PutTransactionController.TRANSACTIONS_URL + "/{id}", 2)

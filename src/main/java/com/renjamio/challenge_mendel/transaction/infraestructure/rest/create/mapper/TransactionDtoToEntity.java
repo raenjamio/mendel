@@ -21,7 +21,7 @@ public class TransactionDtoToEntity {
         if (Objects.nonNull(transactionDTO.getParentId())) {
             var parent = transactionRepository.findById(transactionDTO.getParentId())
                     .orElseThrow(() -> new BadRequestAlertException(
-                    "Error creating transaction parentId: " + transactionDTO.getParentId() +  "not found", "transaction", "id"));
+                    "Error creating transaction parentId: " + transactionDTO.getParentId() +  " not found", "transaction", "id"));
             return new Transaction(transactionId, transactionDTO.getAmount(), transactionDTO.getType(), parent, null);
         }
         return new Transaction(transactionId, transactionDTO.getAmount(), transactionDTO.getType(), null, null);

@@ -17,13 +17,14 @@ import static com.renjamio.challenge_mendel.transaction.infraestructure.rest.cre
 @Log4j2
 public class GetByTypeController {
 
+    public static final String GET_BY_TYPE_URL = TRANSACTIONS_URL + "/types";
     private final GetByType getByType;
 
     public GetByTypeController(GetByType getByType) {
         this.getByType = getByType;
     }
 
-    @GetMapping(TRANSACTIONS_URL + "/types/{type}")
+    @GetMapping(GET_BY_TYPE_URL + "/{type}")
     @ResponseStatus(HttpStatus.OK)
     public List<Long> get(@PathVariable TransactionType type) {
         return getByType.execute(type);
