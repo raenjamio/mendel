@@ -15,6 +15,7 @@ import static com.renjamio.challenge_mendel.transaction.infraestructure.rest.cre
 @Log4j2
 public class GetSumByTransactionIdController {
 
+    public static final String GET_SUM_URL = TRANSACTIONS_URL + "/sum";
     private final GetSumByTransactionId getSumByTransactionId;
 
     public GetSumByTransactionIdController(GetSumByTransactionId getSumByTransactionId) {
@@ -22,7 +23,7 @@ public class GetSumByTransactionIdController {
     }
 
 
-    @GetMapping(TRANSACTIONS_URL + "/sum/{transactionId}")
+    @GetMapping(GET_SUM_URL + "/{transactionId}")
     @ResponseStatus(HttpStatus.OK)
     public SumTransactionDTO get(@PathVariable Long transactionId) {
         return new SumTransactionDTO(getSumByTransactionId.execute(transactionId));
