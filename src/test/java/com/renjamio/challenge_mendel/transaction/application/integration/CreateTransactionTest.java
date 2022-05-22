@@ -1,6 +1,7 @@
 package com.renjamio.challenge_mendel.transaction.application.integration;
 
 import com.renjamio.challenge_mendel.shared.domain.BadRequestAlertException;
+import com.renjamio.challenge_mendel.shared.domain.DomainError;
 import com.renjamio.challenge_mendel.transaction.application.create.CreateTransaction;
 import com.renjamio.challenge_mendel.transaction.domain.Transaction;
 import com.renjamio.challenge_mendel.transaction.domain.TransactionType;
@@ -80,20 +81,19 @@ class CreateTransactionTest {
     }
 
     @Test
-    @DisplayName("Test should return parentId not found when parent_id not found")
+    @DisplayName("Test should return The transaction <10000> doesn't exist")
     void Should_Return_Error_When_ParentId_NotFound()
     {
         long idTransaction = 150L;
         double amountTransaction1 = 5000.0;
 
-        var thrown = Assertions.assertThrows(BadRequestAlertException.class, () -> {
-            createTransaction.execute(idTransaction, TransactionDTO.builder()
-                    .amount(amountTransaction1)
-                    .type(TransactionType.CARS)
-                    .parentId(10000L)
-                    .build());
-        });
+        var thrown = Assertions.assertThrows(DomainError.class, () ->
+                createTransaction.execute(idTransaction, TransactionDTO.builder()
+                .amount(amountTransaction1)
+                .type(TransactionType.CARS)
+                .parentId(10000L)
+                .build()));
 
-        assertThat(thrown.getMessage()).isEqualTo("Error creating transaction parentId: 10000 not found");
+        assertThat(thrown.getMessage()).isEqualTo("The transaction <10000> doesn't exist");
     }
 }

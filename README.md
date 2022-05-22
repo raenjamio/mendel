@@ -1,17 +1,24 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2673ac5373bd4f13aa403e4389862abc)](https://app.codacy.com/app/raenjamio/valtech-testdrive?utm_source=github.com&utm_medium=referral&utm_content=raenjamio/valtech-testdrive&utm_campaign=Badge_Grade_Dashboard)
-[![Build Status](https://travis-ci.org/raenjamio/valtech-testdrive.png?branch=master)](https://travis-ci.org/raenjamio/valtech-testdrive)
-[![Code Coverage](https://img.shields.io/codecov/c/github/raenjamio/valtech-testdrive/master.svg)](https://codecov.io/github/raenjamio/valtech-testdrive?branch=master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6b54209ea5c94574b4ec4783af5cf5b3)](https://www.codacy.com/gh/raenjamio/mendel/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=raenjamio/mendel&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/6b54209ea5c94574b4ec4783af5cf5b3)](https://www.codacy.com/gh/raenjamio/mendel/dashboard?utm_source=github.com&utm_medium=referral&utm_content=raenjamio/mendel&utm_campaign=Badge_Coverage)
 
-# TEST-DRIVE
+# challenge
 By Rodrigo Enjamio
-Encargado por Valtech
+Encargado por Mendel
 
-POC de un sistema de reservas de test-drive de autos, solicitado por la empresa Valtech
+# Consideraciones
+-Para buscar las transacciones que están conectadas transitivamente no se usó una query SQL, ya que el
+enunciado pedía explicitamente que no se haga por SQL, siendo que quizas sea una mejor opcion, ya que evitamos
+tener que hacer un select por cada hijo. Y evitamos la posibilidad de que pueda dar un error por heap size.
+Para verificar esto se debería hacer test de stress con jmeter.
+-TransactionType se definio como Enum, pero podría ser una Entidad dependiendo si cambian o no 
+los tipos de transacciones.
+-Al crear una transaccion con PUT se retorna STATUS=200 (porque lo pedía el enunciado) pero en general
+se devuelve 201 al crear un recurso.
 
 # Tecnologias Utilizadas:
 - Java 17: El core de la app
 - SpringBoot: Api para dar manejo de aplicacion Rest
-- H2: BD embebida para profile desa
+- H2: BD embebida.
 - jUnit, mokito, hamcrest: Testing
 - Lombok: Para no declarar setters, getters etc
 - Maven: Gestion del proyecto
@@ -19,7 +26,6 @@ POC de un sistema de reservas de test-drive de autos, solicitado por la empresa 
 - Jacoco: Cobertura y reportes
 - Docker-compose: Generar los contenedores para prod
 - Prometheus y Grafana: Monitoreo de la aplicacion
-- Travis: Integracion continua
 
 # Instrucciones para lanzar la aplicacion en localhost
 Una vez clonado ir a la carpeta challenge_mendel y desde la consola
@@ -33,15 +39,8 @@ Una vez clonado ir a la carpeta challenge_mendel y desde la consola
   localhost:8080/actuator/health
   localhost:8080/swagger-ui.html
 
-
-# Heroku (esta desplegada el branch heroku que funciona con una base de datos H2 embebida):
-
-    https://raenjamio-test-drive.herokuapp.com/actuator/health
-
-
-
 # Levantar la aplicación con docker (creo una instancia de la aplicación y una de BD MySQL):
-- En la carpeta  carpeta test-drive:
+- En la carpeta  carpeta challenge_mendel:
   mvn clean install (para generar la imagen)
   docker-compose up
 
@@ -55,29 +54,11 @@ Una vez clonado ir a la carpeta challenge_mendel y desde la consola
 # Tests
 - Conexión con Travis y codecov	 que ejecuta los tests y se puede ver en el Badge, Cantidad de tests:
 
-![test](./images/travis.png)
 
 ![test1](./images/testjunit.png)
 
 ![test2](./images/testcoverage.png)
 
-# Test de concurrencia jmeter:
-
-    GET a /api/v1/cars/1/available : 10000 Request cada 1 segundo, sin errores.
-
-
-![concurrencia](./images/concurrencia10000-1.png)
-
-![concurrencia1](./images/concurrencia10000-2.png)
-
-# Concurrencia para hacer reservas de autos:
-4000 request cada 1 segundo: hubo 3999 errores 400 por la excepción que se produce al validar si la reserva existe
-
-![concurrencia2](./images/concurrencia4000-1.png)
-
-![concurrencia2](./images/concurrencia4000-2.png)
-
-A partir de los 5000 request empieza a haber problemas de infraestructura por concurrencia. Habría que aumentar la cantidad máxima de hilos del pool de la base de datos, poner mas memoria ram etc.
 
 # Monitorización
 - Prometheus y Grafana
