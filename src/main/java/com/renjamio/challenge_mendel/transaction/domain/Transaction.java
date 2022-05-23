@@ -19,7 +19,7 @@ public class Transaction {
     private Double amount;
     @Enumerated(value = EnumType.STRING)
     private TransactionType type;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne
     @JoinColumn(name = "parent_id")
     private Transaction parent;
 
