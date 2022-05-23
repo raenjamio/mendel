@@ -44,3 +44,5 @@ Una vez clonado ir a la carpeta mendel y desde la consola
   docker run -p 8080:8080 challenge_mendel
 
 - Para mas informacion ver documento ./doc/Evidencias challenge-mendel.docx
+
+![swagger](./doc/images/swagger.png)
