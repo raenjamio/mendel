@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -62,8 +64,8 @@ class PutTransactionControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().is4xxClientError())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.errors[0]").value("amount: transaction.amount.not-null"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.errors[1]").value("type: transaction.type.not-null"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.errors", hasItem("amount: transaction.amount.not-null")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.errors", hasItem("type: transaction.type.not-null")));
     }
 
     public static String asJsonString(final Object obj) {
