@@ -38,7 +38,7 @@ Una vez clonado ir a la carpeta mendel y desde la consola
   - Metricas: localhost:8080/actuator/prometheus 
   - OpenAPI3: localhost:8080/swagger-ui.html
 
-# Levantar la aplicación con docker (creo una instancia de la aplicación y una de BD MySQL):
+# Levantar la aplicación con docker:
 - En la carpeta  carpeta mendel:
   mvn clean install (para generar la imagen)
   docker run -p 8080:8080 challenge_mendel
