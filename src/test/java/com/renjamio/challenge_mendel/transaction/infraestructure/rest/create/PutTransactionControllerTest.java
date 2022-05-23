@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,6 +49,21 @@ class PutTransactionControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().is4xxClientError());
+    }
+
+    @Test
+    @DisplayName("Test return 404 when body is null")
+    void Should_Return404_When_Body_Is_Null() throws Exception
+    {
+        mvc.perform( MockMvcRequestBuilders
+                .put(PutTransactionController.TRANSACTIONS_URL + "/{id}", 2)
+                .content(asJsonString(TransactionDTO.builder()
+                        .build()))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().is4xxClientError())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.errors[0]").value("amount: transaction.amount.not-null"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.errors[1]").value("type: transaction.type.not-null"));
     }
 
     public static String asJsonString(final Object obj) {
