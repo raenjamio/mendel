@@ -24,8 +24,6 @@ se devuelve 201 al crear un recurso.
 - Maven: Gestion del proyecto
 - OpenApi3: Documentador de API endpoints.
 - Jacoco: Cobertura y reportes
-- Docker-compose: Generar los contenedores para prod
-- Prometheus y Grafana: Monitoreo de la aplicacion
 - SOLID, DDD y Arquitectura Hexagonal.
 
 # Instrucciones para lanzar la aplicacion en localhost
