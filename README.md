@@ -29,20 +29,20 @@ se devuelve 201 al crear un recurso.
 - SOLID, DDD y Arquitectura Hexagonal.
 
 # Instrucciones para lanzar la aplicacion en localhost
-Una vez clonado ir a la carpeta challenge_mendel y desde la consola
+Una vez clonado ir a la carpeta mendel y desde la consola
 
 - Perfil dev (usa una BD h2)
 
   mvn spring-boot:run
 
 - Acceder via explorador a:
-  Health: localhost:8080/actuator/health
-  Metricas: localhost:8080/actuator/prometheus
-  OpenAPI3: localhost:8080/swagger-ui.html
+  - Health: localhost:8080/actuator/health 
+  - Metricas: localhost:8080/actuator/prometheus 
+  - OpenAPI3: localhost:8080/swagger-ui.html
 
 # Levantar la aplicación con docker (creo una instancia de la aplicación y una de BD MySQL):
-- En la carpeta  carpeta challenge_mendel:
+- En la carpeta  carpeta mendel:
   mvn clean install (para generar la imagen)
-  docker-compose up
+  docker run -p 8080:8080 challenge_mendel
 
 - Para mas informacion ver documento ./doc/Evidencias challenge-mendel.docx
